@@ -6,9 +6,9 @@ edition = "2024"
 [lib]
 
 [dependencies]
-log = { workspace = true }
+log = { version = "0.4.28" }
 config = { version = "0.15.14" }
-serde = { workspace = true }
+serde = { version = "1.0.226", features = ["derive"] }
 
-[lints]
-workspace = true
+[lints.rust]
+unsafe_code = "forbid"
