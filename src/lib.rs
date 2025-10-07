@@ -1,4 +1,4 @@
-use config::{Config, ConfigError};
+use config::{Case, Config, ConfigError};
 use log::{debug, error, info};
 use std::{fmt::Debug, sync::OnceLock};
 
@@ -12,7 +12,7 @@ where
         debug!("Loading configurations....");
         let config = Config::builder()
             .add_source(config::File::with_name("config"))
-            .add_source(config::Environment::with_prefix("VELOCITY").prefix_separator("_"))
+            .add_source(config::Environment::with_convert_case(Case::Upper))
             .build();
 
         match config {
